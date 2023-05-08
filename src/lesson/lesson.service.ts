@@ -13,7 +13,9 @@ export class LessonService {
   ) {}
 
   async getLesson(id: string): Promise<Lesson> {
-    return await this.lessonRepository.findOne({ where: { id } });
+    return await this.lessonRepository.findOne({
+      where: { id },
+    });
   }
 
   async getLessons(): Promise<Lesson[]> {
@@ -24,7 +26,6 @@ export class LessonService {
     return await this.lessonRepository.save({
       id: uuid(),
       ...data,
-      students: [],
     });
   }
 
