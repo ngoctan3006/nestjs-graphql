@@ -9,13 +9,8 @@ export class LessonResolver {
   constructor(private readonly lessonService: LessonService) {}
 
   @Query((returns) => LessonType)
-  async lesson() {
-    return {
-      id: '1',
-      name: 'Toan',
-      startDate: new Date().toISOString(),
-      endDate: new Date().toISOString(),
-    };
+  async lesson(@Args('id') id: string): Promise<Lesson> {
+    return await this.lessonService.getLesson(id);
   }
 
   @Mutation((returns) => LessonType)
