@@ -1,5 +1,5 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { CreateLessonArgs } from './create-lesson.args';
+import { CreateLessonInput } from './create-lesson.input';
 import { Lesson } from './lesson.entity';
 import { LessonService } from './lesson.service';
 import { LessonType } from './lesson.type';
@@ -14,7 +14,7 @@ export class LessonResolver {
   }
 
   @Mutation((returns) => LessonType)
-  async create(@Args() data: CreateLessonArgs): Promise<Lesson> {
+  async create(@Args('data') data: CreateLessonInput): Promise<Lesson> {
     return await this.lessonService.create(data);
   }
 }
