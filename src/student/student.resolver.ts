@@ -13,6 +13,11 @@ export class StudentResolver {
     return await this.studentService.getStudent(id);
   }
 
+  @Query((returns) => [StudentType])
+  async getStudents(): Promise<Student[]> {
+    return await this.studentService.getStudents();
+  }
+
   @Mutation((returns) => StudentType)
   async createStudent(
     @Args('data') data: CreateStudentInput,
