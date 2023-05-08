@@ -12,6 +12,10 @@ export class StudentService {
     private readonly studentRepository: Repository<Student>,
   ) {}
 
+  async getStudent(id: string): Promise<Student> {
+    return await this.studentRepository.findOne({ where: { id } });
+  }
+
   async create(data: CreateStudentInput): Promise<Student> {
     return await this.studentRepository.save({ id: uuid(), ...data });
   }
