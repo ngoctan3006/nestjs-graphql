@@ -19,7 +19,7 @@ export class LessonResolver {
   }
 
   @Mutation((returns) => LessonType)
-  async create(@Args('data') data: CreateLessonInput): Promise<Lesson> {
+  async createLesson(@Args('data') data: CreateLessonInput): Promise<Lesson> {
     return await this.lessonService.create(data);
   }
 }
