@@ -11,7 +11,6 @@ import { LessonModule } from './lesson/lesson.module';
     }),
     LessonModule,
   ],
-  controllers: [],
   providers: [],
 })
 export class AppModule {}
