@@ -13,6 +13,11 @@ export class LessonResolver {
     return await this.lessonService.getLesson(id);
   }
 
+  @Query((returns) => [LessonType])
+  async lessons(): Promise<Lesson[]> {
+    return await this.lessonService.getLessons();
+  }
+
   @Mutation((returns) => LessonType)
   async create(@Args('data') data: CreateLessonInput): Promise<Lesson> {
     return await this.lessonService.create(data);
